@@ -6,8 +6,14 @@ import KitIcon from './KitIcon';
 import TierBadge from './TierBadge';
 import { useAuth } from '../context/AuthContext';
 import { AlertCircle, ArrowDown, Check, ChevronDown, Medal, RefreshCw, X } from 'lucide-react';
+import { cn } from '../utils/cn';
 
-const TierList: React.FC = () => {
+interface TierListProps {
+  selectedMode: string;
+  selectedKit: string | null;
+}
+
+const TierList: React.FC<TierListProps> = ({ selectedMode, selectedKit }) => {
   const { state, updateTier, refreshData } = useTierList();
   const { authState } = useAuth();
   const [editingCell, setEditingCell] = useState<{ playerId: string; kit: Kit } | null>(null);
@@ -50,11 +56,6 @@ const TierList: React.FC = () => {
     setTimeout(() => setSuccessMessage(null), 3000);
   };
   
-  const getPlayerTier = (player: Player, kit: Kit): TierRank | null => {
-    const tierEntry = player.tiers.find(t => t.kit === kit);
-    return tierEntry ? tierEntry.tier as TierRank : null;
-  };
-  
   if (state.isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -79,7 +80,7 @@ const TierList: React.FC = () => {
     <div className="overflow-x-auto">
       {successMessage && (
         <div className="fixed top-4 right-4 bg-green-900/70 border border-green-500 text-green-200 px-4 py-2 rounded-lg flex items-center shadow-lg animate-fadeIn z-50">
-          <Check className="mr-2\" size={16} />
+          <Check className="mr-2" size={16} />
           {successMessage}
         </div>
       )}
@@ -116,11 +117,22 @@ const TierList: React.FC = () => {
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                 Player
               </th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Region
+              </th>
+              <th scope="col" colSpan={KITS.length} className="px-6 py-3 text-center text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Tiers
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
               {KITS.map((kit) => (
-                <th key={kit.id} scope="col" className="px-3 py-3 text-center text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th key={kit.id} className="px-3 py-3 text-center">
                   <div className="flex flex-col items-center">
                     <KitIcon kit={kit.id as Kit} size={20} />
-                    <span className="mt-1">{kit.name}</span>
+                    <span className="mt-1 text-xs text-gray-400">{kit.name}</span>
                   </div>
                 </th>
               ))}
@@ -130,19 +142,41 @@ const TierList: React.FC = () => {
             {state.players.map((player, index) => (
               <tr key={player.id} className={index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-750'}>
                 <td className="px-6 py-4 whitespace-nowrap">
+                  <div className={cn(
+                    "player-rank",
+                    index === 0 && "rank-1",
+                    index === 1 && "rank-2",
+                    index === 2 && "rank-3"
+                  )}>
+                    {index + 1}
+                  </div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0 h-8 w-8 flex items-center justify-center bg-gray-700 rounded-full text-white font-bold">
-                      {index + 1}
+                    <img
+                      src={player.avatarUrl}
+                      alt={`${player.name}'s avatar`}
+                      className="player-avatar mr-3"
+                    />
+                    <div>
+                      <div className="text-sm font-medium text-white">{player.name}</div>
+                      <div className="text-sm text-gray-400">
+                        {player.rank} ({player.points} pts)
+                      </div>
                     </div>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-white">{player.name}</div>
-                  <div className="text-sm text-gray-400">{player.rank} ({player.points} pts)</div>
+                  <span className={cn(
+                    "region-badge",
+                    player.region.toLowerCase() === "eu" ? "eu" : "na"
+                  )}>
+                    {player.region}
+                  </span>
                 </td>
                 
                 {KITS.map((kit) => {
-                  const tier = getPlayerTier(player, kit.id as Kit);
+                  const tier = player.tiers.find(t => t.kit === kit.id)?.tier;
                   const isEditing = editingCell?.playerId === player.id && editingCell?.kit === kit.id;
                   
                   return (

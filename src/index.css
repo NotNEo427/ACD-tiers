@@ -22,7 +22,11 @@
   }
   
   .region-badge {
-    @apply px-2 py-1 text-xs font-semibold rounded bg-red-900/50 text-red-200;
+    @apply px-2 py-1 text-xs font-semibold rounded;
+  }
+  
+  .region-badge.na {
+    @apply bg-red-900/50 text-red-200;
   }
   
   .region-badge.eu {
@@ -46,11 +50,11 @@
   }
   
   .player-avatar {
-    @apply w-10 h-10 rounded-lg object-cover;
+    @apply w-10 h-10 rounded-lg bg-gray-700;
   }
   
   .kit-icon {
-    @apply p-2 rounded-lg bg-gray-800/50;
+    @apply flex flex-col items-center p-4 rounded-lg bg-gray-800/50;
   }
 }
 

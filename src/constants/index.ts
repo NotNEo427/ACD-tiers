@@ -5,6 +5,16 @@ export const ADMIN_CREDENTIALS = {
   password: 'qwertyuioplkj5548yh'
 };
 
+export const GAME_MODE_FILTERS = [
+  { id: 'overall', name: 'Overall', icon: 'Trophy' },
+  { id: 'ltms', name: 'LTMs', icon: 'Swords' },
+  { id: 'vanilla', name: 'Vanilla', icon: 'Box' },
+  { id: 'uhc', name: 'UHC', icon: 'Heart' },
+  { id: 'pot', name: 'Pot', icon: 'Flask' },
+  { id: 'nethop', name: 'NethOP', icon: 'Flame' },
+  { id: 'smp', name: 'SMP', icon: 'Globe' }
+];
+
 export const KITS: { id: Kit; name: string }[] = [
   { id: 'sword', name: 'Sword' },
   { id: 'axe', name: 'Axe' },
@@ -23,16 +33,16 @@ export const TIER_RANKS: TierRank[] = [
 ];
 
 export const TIER_COLORS: Record<TierRank, TierColor> = {
-  'HT1': { background: '#FFD700', text: '#000000' }, // Gold
-  'LT1': { background: '#4169E1', text: '#FFFFFF' }, // Royal Blue
-  'HT2': { background: '#C0C0C0', text: '#000000' }, // Silver
-  'LT2': { background: '#708090', text: '#FFFFFF' }, // Slate Gray
-  'HT3': { background: '#CD7F32', text: '#FFFFFF' }, // Bronze
-  'LT3': { background: '#A0522D', text: '#FFFFFF' }, // Sienna
-  'HT4': { background: '#2E8B57', text: '#FFFFFF' }, // Sea Green
-  'LT4': { background: '#556B2F', text: '#FFFFFF' }, // Dark Olive Green
-  'HT5': { background: '#800080', text: '#FFFFFF' }, // Purple
-  'LT5': { background: '#483D8B', text: '#FFFFFF' }  // Dark Slate Blue
+  'HT1': { background: '#FFD700', text: '#000000' },
+  'LT1': { background: '#4169E1', text: '#FFFFFF' },
+  'HT2': { background: '#C0C0C0', text: '#000000' },
+  'LT2': { background: '#708090', text: '#FFFFFF' },
+  'HT3': { background: '#CD7F32', text: '#FFFFFF' },
+  'LT3': { background: '#A0522D', text: '#FFFFFF' },
+  'HT4': { background: '#2E8B57', text: '#FFFFFF' },
+  'LT4': { background: '#556B2F', text: '#FFFFFF' },
+  'HT5': { background: '#800080', text: '#FFFFFF' },
+  'LT5': { background: '#483D8B', text: '#FFFFFF' }
 };
 
 export const MOCK_PLAYERS = [
@@ -42,6 +52,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 500,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Sycthy',
     tiers: [
       { kit: 'sword', tier: 'HT1' },
       { kit: 'axe', tier: 'HT1' },
@@ -61,6 +72,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 480,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Ellies V',
     tiers: [
       { kit: 'sword', tier: 'LT1' },
       { kit: 'axe', tier: 'HT1' },
@@ -80,6 +92,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 470,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Wido',
     tiers: [
       { kit: 'sword', tier: 'HT2' },
       { kit: 'axe', tier: 'LT2' },
@@ -99,6 +112,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 460,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Neo H',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT2' },
@@ -118,6 +132,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 450,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Rexo',
     tiers: [
       { kit: 'sword', tier: 'HT2' },
       { kit: 'axe', tier: 'LT3' },
@@ -137,6 +152,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 440,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Evo',
     tiers: [
       { kit: 'sword', tier: 'LT3' },
       { kit: 'axe', tier: 'HT2' },
@@ -156,6 +172,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 430,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Darky',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -175,6 +192,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 420,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Blom',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -194,6 +212,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 410,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Blazo',
     tiers: [
       { kit: 'sword', tier: 'HT2' },
       { kit: 'axe', tier: 'LT3' },
@@ -213,6 +232,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 400,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Spectro',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -232,6 +252,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 390,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Doni',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -251,6 +272,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 380,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Reterno',
     tiers: [
       { kit: 'sword', tier: 'LT3' },
       { kit: 'axe', tier: 'HT2' },
@@ -270,6 +292,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 370,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Kelk',
     tiers: [
       { kit: 'sword', tier: 'HT2' },
       { kit: 'axe', tier: 'LT3' },
@@ -289,6 +312,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 360,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Me',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -308,6 +332,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 350,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Yolo',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -327,6 +352,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 340,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Big A',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -346,6 +372,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 330,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Unded',
     tiers: [
       { kit: 'sword', tier: 'HT2' },
       { kit: 'axe', tier: 'LT3' },
@@ -365,6 +392,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 320,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Unio',
     tiers: [
       { kit: 'sword', tier: 'LT3' },
       { kit: 'axe', tier: 'HT2' },
@@ -384,6 +412,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 310,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Winder',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -403,6 +432,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 300,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Vran',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -422,6 +452,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 290,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Crysto',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -441,6 +472,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 280,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Morpho',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -460,6 +492,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 270,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Void',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -479,6 +512,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 260,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Ravv',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -498,6 +532,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 250,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Polo',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -517,6 +552,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 240,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Retoro',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -536,6 +572,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 230,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Rutner',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -555,6 +592,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 220,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Raivo',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -574,6 +612,7 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 210,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Tron T',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
       { kit: 'axe', tier: 'LT2' },
@@ -593,6 +632,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 200,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Inferno',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
@@ -612,9 +652,9 @@ export const MOCK_PLAYERS = [
     rank: 'Master',
     points: 190,
     region: 'EU',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Crysteo',
     tiers: [
       { kit: 'sword', tier: 'HT3' },
-      
       { kit: 'axe', tier: 'LT2' },
       { kit: 'crystal', tier: 'HT2' },
       { kit: 'mace', tier: 'LT3' },
@@ -632,6 +672,7 @@ export const MOCK_PLAYERS = [
     rank: 'Elite',
     points: 180,
     region: 'NA',
+    avatarUrl: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Jka',
     tiers: [
       { kit: 'sword', tier: 'LT2' },
       { kit: 'axe', tier: 'HT3' },
