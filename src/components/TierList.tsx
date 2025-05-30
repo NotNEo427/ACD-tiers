@@ -80,7 +80,7 @@ const TierList: React.FC<TierListProps> = ({ selectedMode, selectedKit }) => {
     <div className="overflow-x-auto">
       {successMessage && (
         <div className="fixed top-4 right-4 bg-green-900/70 border border-green-500 text-green-200 px-4 py-2 rounded-lg flex items-center shadow-lg animate-fadeIn z-50">
-          <Check className="mr-2" size={16} />
+          <Check className="mr-2\" size={16} />
           {successMessage}
         </div>
       )}

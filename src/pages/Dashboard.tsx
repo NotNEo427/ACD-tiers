@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trophy, Swords, Box, Heart, Flask, Flame, Globe } from 'lucide-react';
+import { Trophy, Swords, Box, Heart, FlaskRound as Flask, Flame, Globe } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import TierList from '../components/TierList';
 import { GAME_MODE_FILTERS, KITS } from '../constants';
