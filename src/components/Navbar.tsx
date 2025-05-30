@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Trophy, GameController, Home } from 'lucide-react';
+import { Search, Trophy, TowerControl as GameController, Home } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar: React.FC = () => {
