@@ -18,6 +18,7 @@ export type Player = {
   rank: string;
   points: number;
   region: string;
+  avatarUrl: string;
   tiers: PlayerTier[];
 };
 

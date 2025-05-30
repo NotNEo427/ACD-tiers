@@ -4,17 +4,69 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-white;
+    @apply bg-[#0B0E13] text-white;
   }
 }
 
 @layer components {
-  .bg-gray-750 {
-    background-color: #2D3748;
+  .nav-link {
+    @apply text-gray-400 hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-gray-800;
+  }
+  
+  .nav-link.active {
+    @apply text-white bg-gray-800;
+  }
+  
+  .tier-badge {
+    @apply px-2 py-0.5 rounded-full text-xs font-bold inline-flex items-center;
+  }
+  
+  .region-badge {
+    @apply px-2 py-1 text-xs font-semibold rounded bg-red-900/50 text-red-200;
+  }
+  
+  .region-badge.eu {
+    @apply bg-green-900/50 text-green-200;
+  }
+  
+  .player-rank {
+    @apply w-8 h-8 flex items-center justify-center rounded-lg font-bold text-lg;
+  }
+  
+  .rank-1 {
+    @apply bg-gradient-to-br from-yellow-500 to-yellow-600 text-black;
+  }
+  
+  .rank-2 {
+    @apply bg-gradient-to-br from-gray-300 to-gray-400 text-black;
+  }
+  
+  .rank-3 {
+    @apply bg-gradient-to-br from-amber-600 to-amber-700 text-white;
+  }
+  
+  .player-avatar {
+    @apply w-10 h-10 rounded-lg object-cover;
+  }
+  
+  .kit-icon {
+    @apply p-2 rounded-lg bg-gray-800/50;
   }
 }
 
 @layer utilities {
+  .bg-dark-800 {
+    background-color: #151A23;
+  }
+  
+  .bg-dark-700 {
+    background-color: #1C2331;
+  }
+  
+  .bg-dark-600 {
+    background-color: #242D3E;
+  }
+  
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-in-out;
   }
